@@ -11,7 +11,6 @@ class DioHelper {
         receiveDataWhenStatusError: true,
         connectTimeout: const Duration(seconds: 20),
         receiveTimeout: const Duration(seconds: 20),
-        // headers: {'Content-Type':'application/json'},
       ),
     );
   }
@@ -19,7 +18,6 @@ class DioHelper {
   static Future<Response> getData({
     required String endPoint,
     Map<String, dynamic>? queryParameters,
-    // String? token,
   }) async {
     final res = await dio.get(
       endPoint,
