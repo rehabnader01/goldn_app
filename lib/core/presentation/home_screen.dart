@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:goldn/core/constants/app_colors.dart';
 import 'package:goldn/core/constants/app_strings.dart';
+import 'package:goldn/core/routing/routes.dart';
 import '../widgets/custom_button.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,17 +10,27 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: AppColors.blackColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomButton(text: AppStrings.gold, color: AppColors.goldColor,onPressed: (){},),
-          SizedBox(height: 15,),
-          CustomButton(text: AppStrings.silver, color: AppColors.silverColor,onPressed: (){},)
+          CustomButton(
+            text: AppStrings.gold,
+            color: AppColors.goldColor,
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.goldScreen);
+            },
+          ),
+          SizedBox(height: 15),
+          CustomButton(
+            text: AppStrings.silver,
+            color: AppColors.silverColor,
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.silverScreen);
+            },
+          ),
         ],
-      )
-
+      ),
     );
   }
 }

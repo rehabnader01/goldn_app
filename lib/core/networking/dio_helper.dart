@@ -11,6 +11,10 @@ class DioHelper {
         receiveDataWhenStatusError: true,
         connectTimeout: const Duration(seconds: 20),
         receiveTimeout: const Duration(seconds: 20),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
       ),
     );
   }
@@ -19,10 +23,15 @@ class DioHelper {
     required String endPoint,
     Map<String, dynamic>? queryParameters,
   }) async {
-    final res = await dio.get(
-      endPoint,
-      queryParameters: queryParameters,
-    );
-    return res;
+    try {
+      final res = await dio.get(endPoint, queryParameters: queryParameters);
+      return res;
+    } on DioException catch (e) {
+      if (e.response != null) {
+        throw Exception('Error ${e.response!.statusCode}: ${e.response!.data}');
+      } else {
+        throw Exception('Connection failed: ${e.message}');
+      }
+    }
   }
 }

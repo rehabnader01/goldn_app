@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:goldn/core/networking/dio_helper.dart';
 import 'package:goldn/core/routing/app_router.dart';
 import 'package:goldn/core/routing/routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  DioHelper.init();
   runApp(const MyApp());
 }
 
@@ -15,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Goldn',
-      initialRoute: AppRoutes.HomeScreen,
+      initialRoute: AppRoutes.homeScreen,
       onGenerateRoute: AppRouter().generateRoute,
     );
   }
