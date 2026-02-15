@@ -12,7 +12,6 @@ A clean and modern Flutter application that provides real-time gold and silver s
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
 - [Architecture](#-architecture)
-- [Folder Structure](#-folder-structure)
 - [Getting Started](#-getting-started)
 - [Testing](#-testing)
 - [Screenshots](#-screenshots)
